@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.managed.accountant</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="40"/>
+        <field name="inherit_id" ref="account.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+             <xpath expr="//div[@id='storno']" position="after">
+                        <h2>Accountant Groups</h2>
+                        <div class="row mt16 o_settings_container" id="c-accountant">
+                            <div class="col-12 col-lg-6 o_setting_box"
+                                id="custom_accountant_groups"
+                                title="Allows you to use multiple accounting groups for accounting">
+                                <div class="text-muted">
+                                    <p style="margin-bottom: 0">Select the groups who can post journal entries</p>
+                                </div>
+                                <div class="o_setting_right_pane mt16">
+                                    <label for="journal_entry_group_id"/>
+                                    <span class="fa fa-lg fa-building-o" title="Values set here are company-specific." aria-label="Values set here are company-specific." groups="base.group_multi_company" role="img"/>
+                                    <div>
+                                        <field name="journal_entry_group_id" widget="many2many_tags"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+            </xpath>
+        </field>
+    </record>
+</odoo>
